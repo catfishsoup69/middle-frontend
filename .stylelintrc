@@ -1,3 +1,17 @@
 {
-  "extends": "stylelint-config-standard"
+  "extends": [
+    "stylelint-config-standard",
+    "stylelint-config-sass-guidelines"
+  ],
+  "plugins": ["stylelint-scss"],
+  "rules": {
+    "import-notation": "string",
+    "max-nesting-depth": 2,
+    "function-no-unknown": [
+      true,
+      {
+        "ignoreFunctions": ["px-to-rem"]
+      }
+    ]
+  }
 }

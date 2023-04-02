@@ -1,18 +1,16 @@
-@use 'sass:math';
-
-@function pxToRem($number) {
-  $strip-unit: math.div($number, ($number * 0 + 1));
-  @return math.div($strip-unit * 1rem, 16);
-}
-
 //fonts
 $font: "Roboto", sans-serif;
 
 //colors
-$decorateColor: #EE7235;
+$decorate-color: #EE7235;
 
 //breakpoints
-$screenXlMin: 1200px;
+$screen-xl-min: 1200px;
 
 //sizes
-$contentWidth: pxToRem(1170px);
+$base: 16px;
+
+//functions
+@function px-to-rem($number) {
+  @return calc($number * 1rem / $base);
+}

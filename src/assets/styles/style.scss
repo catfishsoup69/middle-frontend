@@ -1,10 +1,11 @@
-@use 'sass:math';
-@import "include/fonts";
-@import "include/base";
+@import "./include/fonts";
+@import "./include/base";
 
 html {
-  @media (max-width: $screenXlMin) {
-    font-size: math.div((16 * 100vw), 1200);
+  font-size: $base;
+
+  @media (max-width: $screen-xl-min) {
+    font-size: calc(($base * 100vw)/ $screen-xl-min);
   }
 }
 
@@ -22,7 +23,7 @@ body, * {
 body {
   width: 100%;
   background-color: #e5dbdb;
-  backdrop-filter: blur(pxToRem(6px));
+  backdrop-filter: blur(px-to-rem(6px));
   background-position: center;
 }
 
@@ -40,20 +41,20 @@ img {
   height: 100%;
 
   &__content {
-    width: $contentWidth;
+    width: px-to-rem(1170px);
     margin: 0 auto;
     height: 100vh;
   }
 
   &__title {
-    color: $decorateColor;
-    font-size: pxToRem(54px);
+    color: $decorate-color;
+    font-size: px-to-rem(54px);
     text-align: center;
-    padding-top: pxToRem(100px);
+    padding-top: px-to-rem(100px);
   }
 
   &__section {
-    margin: pxToRem(100px) 0;
+    margin: px-to-rem(100px) 0;
   }
 }
 
@@ -66,28 +67,28 @@ img {
     width: 100%;
     display: flex;
     justify-content: center;
-    column-gap: pxToRem(40px);
+    column-gap: px-to-rem(40px);
     pointer-events: none;
   }
 
   &__item {
-    width: pxToRem(260px);
-    height: pxToRem(260px);
-    border-radius: pxToRem(20px);
-    border: pxToRem(1px) solid #fff;
+    width: px-to-rem(260px);
+    height: px-to-rem(260px);
+    border-radius: px-to-rem(20px);
+    border: px-to-rem(1px) solid #fff;
     background-size: cover;
     background-position: center;
     position: relative;
     pointer-events: auto;
     cursor: pointer;
-    -webkit-appearance: button;
+    appearance: button;
 
     &-icon {
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: pxToRem(100px);
+      width: px-to-rem(100px);
       height: auto;
     }
   }
@@ -97,6 +98,6 @@ img {
   }
 
   &__volume {
-    margin-top: pxToRem(40px);
+    margin-top: px-to-rem(40px);
   }
 }

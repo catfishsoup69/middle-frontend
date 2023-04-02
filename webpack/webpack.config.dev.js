@@ -14,13 +14,15 @@ module.exports = merge(commonConfig, {
   plugins: [
     new ESLintPlugin(
       {
-        fix: true,
+        fix: true
       }
   ),
     new StylelintPlugin(
       {
-        configFile: '../.stylelintrc',
-        files: '**/*.css',
+        configFile: './.stylelintrc',
+        files: '**/*.scss',
+        syntax: 'scss',
+        fix: true
       }
     )
   ]

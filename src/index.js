@@ -43,16 +43,16 @@ playerList.addEventListener('click', async (e) => {
   document.querySelector('body').style.backgroundImage = `url(${card.picture})`;
 
   if (!playerAudio) {
-    const audio = new Audio();
+    playerAudio = document.createElement('audio');
     const audioAttrs = {
       id: 'player-audio',
       type: 'audio/mp3',
+      class: 'player__audio',
     };
     Object.keys(audioAttrs).forEach((attr) => {
-      audio.setAttribute(attr, audioAttrs[attr]);
+      playerAudio.setAttribute(attr, audioAttrs[attr]);
     });
-    player.appendChild(audio);
-    playerAudio = audio;
+    player.appendChild(playerAudio);
   }
 
   if (sound !== card.sound) {
