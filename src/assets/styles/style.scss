@@ -1,0 +1,103 @@
+@import "./include/fonts";
+@import "./include/base";
+
+html {
+  font-size: $base;
+
+  @media (max-width: $screen-xl-min) {
+    font-size: calc(($base * 100vw)/ $screen-xl-min);
+  }
+}
+
+body, * {
+  font-family: $font;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*:focus {
+  outline: none;
+}
+
+body {
+  width: 100%;
+  background-color: #e5dbdb;
+  backdrop-filter: blur(px-to-rem(6px));
+  background-position: center;
+}
+
+h1 {
+  font-weight: 600;
+}
+
+img {
+  user-select: none;
+  pointer-events: none;
+}
+
+.page {
+  width: 100%;
+  height: 100%;
+
+  &__content {
+    width: px-to-rem(1170px);
+    margin: 0 auto;
+    height: 100vh;
+  }
+
+  &__title {
+    color: $decorate-color;
+    font-size: px-to-rem(54px);
+    text-align: center;
+    padding-top: px-to-rem(100px);
+  }
+
+  &__section {
+    margin: px-to-rem(100px) 0;
+  }
+}
+
+.player {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  &__wrap {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    column-gap: px-to-rem(40px);
+    pointer-events: none;
+  }
+
+  &__item {
+    width: px-to-rem(260px);
+    height: px-to-rem(260px);
+    border-radius: px-to-rem(20px);
+    border: px-to-rem(1px) solid #fff;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    pointer-events: auto;
+    cursor: pointer;
+    appearance: button;
+
+    &-icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: px-to-rem(100px);
+      height: auto;
+    }
+  }
+
+  &__audio {
+    display: none;
+  }
+
+  &__volume {
+    margin-top: px-to-rem(40px);
+  }
+}
