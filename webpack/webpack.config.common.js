@@ -6,7 +6,7 @@ const dist  = path.resolve(__dirname, '../dist');
 
 module.exports = {
   context: path.resolve(__dirname, '../src'),
-  entry: './index.js',
+  entry: './index.ts',
   output: {
     filename: '[name].[contenthash].bundle.js',
     path: dist,
@@ -60,7 +60,15 @@ module.exports = {
         generator: {
           filename: 'audio/[name][ext]'
         }
-      }
+      },
+      {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/
+      },
     ],
+  },
+  resolve: {
+    extensions: ['.tsx', '.ts', '.js']
   }
 }
